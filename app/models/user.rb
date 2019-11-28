@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_one :booking
+    has_one :booking, :dependent => :destroy 
     has_one :room, through: :booking
 	before_save {self.email = email.downcase}
     validates(:name, presence: true, length: {maximum: 50})

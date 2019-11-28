@@ -1,10 +1,24 @@
-<% provide(:title, @room.num) %>
+<% provide(:title, "Room " + @room.num.to_s) %>
 <h1>
- <%= @room.num %>
- <% if current_user.admin? %>
- 	| <%= link_to "delete", @room, method: :delete,	data: { confirm: "You sure?" } %>
+ Room num: <%= @room.num %>
+ <% if !current_user.nil? %>
+	 <% if @room.user.nil? %>
+	 	<% if current_user.booking.nil? %>
+	 	| <%= link_to "book this room", createbooking_path(:booking => {:user_id => current_user.id, :room_id => @room.id}, :user_id => current_user.id, :room_id => @room.id), method: :post %>
+	 	<% else %>
+	 	| You cannot book more than one room (<%= link_to "check your current booking", current_user.booking %>).
+	 	<% end %>
+	 <% elsif @room.user == current_user %>
+	    | The room is booked by you (<%= link_to "check your booking", current_user.booking %>).
+	 <% else %>
+	 	| The room is not available.
+	 <% end %>
+
+	 <% if current_user.admin? %>
+	 	| <%= link_to "delete room", @room, method: :delete, data: { confirm: "You sure?" } %>
+	 <% end %>
  <% end %>
 </h1>
 <h1>
- <%= @room.info %>
+ Room info: <%= @room.info %>
 </h1>

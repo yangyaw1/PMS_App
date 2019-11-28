@@ -18,18 +18,25 @@
      <li><%= link_to "Home",   root_path %></li>
      <% if logged_in? %>
       <% if current_user.admin? %>
+        <li><%= link_to "All users", users_path %></li>
+      <% end %>
+      <li><%= link_to "Check Your profile", current_user %></li>
+      <li><%= link_to "Edit your profile", edit_user_path(current_user) %></li>
+
+      <li><%= link_to "All Rooms", rooms_path %></li>
+      <% if current_user.admin? %>
         <li><%= link_to "Add room", newroom_path %></li>
-        <li><%= link_to "Check all bookings", bookings_path %></li>
+      <% end %>
+
+      <% if current_user.admin? %>
+        <li><%= link_to "All bookings", bookings_path %></li>
       <% end %>
       <% if current_user.booking.nil? %>
         <li><%= link_to "booking a room", newbooking_path %></li>
       <% else %>
         <li><%= link_to "Check your booking", current_user.booking %></li>
       <% end %>
-      <li><%= link_to "Rooms", rooms_path %></li>
-      <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "You Profile", current_user %></li>
-      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+
       <li><%= link_to "Log out", logout_path, method: "delete" %></li>
      <% else %>
       <li><%= link_to "Log in", login_path %></li>
@@ -45,6 +52,5 @@
       <%= yield %>
       <%= debug(params) if Rails.env.development? %>
      </div>
-     <%= yield %>
   </body>
 </html>

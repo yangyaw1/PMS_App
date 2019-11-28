@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  before_action :logged_in_user, only:[:new, :create, :show, :index, :destroy]
   before_action :not_booked, only: [:new, :create]
   before_action :correct_user, only: :destroy
   before_action :admin_user, only: :index
@@ -41,6 +42,12 @@ class BookingsController < ApplicationController
   		redirect_to root_url unless !(current_user.nil?) && current_user.booking.nil?
   	end
 
+    def logged_in_user
+      unless logged_in?
+        flahp[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
 
     def correct_user
         @booking = Booking.find(params[:id])
