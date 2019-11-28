@@ -5,3 +5,13 @@
  	| <%= link_to "delete", @user, method: :delete,	data: { confirm: "You sure?" } %>
  <% end %>
 </h1>
+
+<h1>
+ <% if current_user == @user%>
+ 	<% if @user.booking.nil? %>
+ 		Haven't booked any room. | <%= link_to "book a new room", newbooking_path %>
+ 	<% else %>
+ 		You already booked a room. | <%= link_to "check your booking", @user.booking %>
+ 	<% end %>
+ <% end %>
+</h1>
