@@ -1,0 +1,10 @@
+<% provide(:title, @room.num) %>
+<h1>
+ <%= @room.num %>
+ <% if current_user.admin? %>
+ 	| <%= link_to "delete", @room, method: :delete,	data: { confirm: "You sure?" } %>
+ <% end %>
+</h1>
+<h1>
+ <%= @room.info %>
+</h1>
