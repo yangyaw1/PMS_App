@@ -1,0 +1,13 @@
+<% provide(:title, 'new Booking') %>
+<h1><%= current_user.name %>, you can book new room.</h1>
+
+<ul class="bookings">
+  <% @rooms.each do |room| %>
+ <li>
+  <%= room.num %>
+  <% if room.user.nil? %>
+ 	| <%= link_to "book this room", createbooking_path(:booking => {:user_id => current_user.id, :room_id => room.id}, :user_id => current_user.id, :room_id => room.id), method: :post %>
+  <% end %> 
+ </li>
+  <% end %>
+</ul>

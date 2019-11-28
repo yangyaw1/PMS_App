@@ -1,0 +1,11 @@
+<% provide(:title, 'All bookings') %>
+<h1>All bookings</h1>
+
+<ul class="bookings">
+  <% @bookings.each do |booking| %>
+	 <li>
+	  User name: <%= booking.user.name %>
+	 	| Room num: <%= booking.room.num %>
+	 </li>
+ <% end %> 
+</ul>

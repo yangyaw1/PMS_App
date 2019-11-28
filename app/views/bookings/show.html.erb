@@ -1,0 +1,11 @@
+<% provide(:title, "booking info") %>
+<h1>
+ User name: <%= @booking.user.name %>
+</h1>
+
+<h1>
+ Room num: <%= @booking.room.num %> 
+ <% if current_user == @booking.user %>
+ | <%= link_to "cancel this booking", @booking, method: :delete, data: { confirm: "You sure?" } %>
+ <% end %>
+</h1>

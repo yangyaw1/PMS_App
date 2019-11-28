@@ -13,3 +13,8 @@ User.create!(name:  "admin",
                  password:              password,
                  password_confirmation: password)
     end
+
+(1..20).each do |n|
+    num = n*100
+    Room.create!(num: num)
+end
