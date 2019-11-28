@@ -16,10 +16,25 @@
      <nav>
      <ul class="nav navbar-nav navbar-right">
      <li><%= link_to "Home",   root_path %></li>
+     <% if logged_in? %>
+      <li><%= link_to "Users", users_path %></li>
+      <li><%= link_to "You Profile", current_user %></li>
+      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+      <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+     <% else %>
+      <li><%= link_to "Log in", login_path %></li>
+     <% end %>
      </ul>
      </nav>
      </div>
      </header>
+     <div class="container">
+      <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+     </div>
      <%= yield %>
   </body>
 </html>
