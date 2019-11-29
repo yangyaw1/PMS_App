@@ -14,6 +14,8 @@ gem 'rails-ujs', '0.1.0'
 
 gem 'faker', '2.7.0'
 
+gem 'rails-controller-testing', '1.0.4'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -38,6 +40,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  gem 'rspec-rails', '3.9.0'
   gem 'sqlite3',     '1.4.1'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
