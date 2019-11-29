@@ -18,8 +18,15 @@
 <h5><span id='overview'>Overview</span></h5>
   This web application is used for <br>
   (1) user (guest) to signup(add guest), login/logout (create/destroy sessions), edit profile (edit guest), view all rooms, book room (assign guest to a room) and view/cancel current booking; <br>
-  (2) admin to have any functions normal user has and admin can delete user (delete guest), add/edit/delete room and view all users and all bookings. 
+  (2) admin to delete user (delete guest), add/edit/delete room and view all users and all bookings. Admin is also treated as a user.
 <h5><span id='models'>Models</span></h5>
+   There are three models in this application: <br>
+   (1)<code>User model: {</code><br>
+      <code>name: string</code><br>
+      <code>email: string</code><br>
+      <code>password: string</code><br>
+      <code>admin: boolean}</code><br>
+      
 <h5><span id='controllers'>Controllers</span></h5>
 <h5><span id='auth'>Authenication</span><h5>
 <h3><span id='testplan'>Test plan</span></h3> 
