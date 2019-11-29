@@ -3,7 +3,7 @@
 ## [Application Description](#description)
 ## [Test plan](#testplan)
 <h3><span id='basicInfo'>Basic information</span></h3>
-  This web application is deployed using heroku (Link: https://radiant-gorge-08960.herokuapp.com/).
+  This web application is deployed using heroku (Link: https://radiant-gorge-08960.herokuapp.com/). <br>
   This application is written in <code> Rails 6.0.1 </code>
 <h3><span id='description'>Application Description</span></h3> 
 <h3><span id='testplan'>Test plan</span></h3> 
