@@ -3,7 +3,7 @@
 ## [Application Description](#description)
 ## [Test plan](#testplan)
 <h3><span id='basicInfo'>Basic information</span></h3>
-  This Web application is deployed using [here](https://radiant-gorge-08960.herokuapp.com/ "Markdown").
+  This Web application is deployed using [here](https://radiant-gorge-08960.herokuapp.com/).
 <h3><span id='description'>Application Description</span></h3> 
 <h3><span id='testplan'>Test plan</span></h3> 
   This README would normally document whatever steps are necessary to get the
