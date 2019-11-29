@@ -1,6 +1,9 @@
 # README
 ## [Basic information](#basicInfo)
 ## [Application Description](#description)
+   #### [Models](#models)
+   #### [Controllers](#controllers)
+   #### [Authenication](#auth)
 ## [Test plan](#testplan)
 <h3><span id='basicInfo'>Basic information</span></h3>
   This web application is deployed using heroku (Link: https://radiant-gorge-08960.herokuapp.com/). <br>
@@ -11,6 +14,9 @@
   <code> rails server </code> <br>
   You can also generate some sample datas for data model using <code> rake db:seed </code> <br>
 <h3><span id='description'>Application Description</span></h3> 
+<h5><span id='models'>Models</span></h5>
+<h5><span id='controllers'>Controllers</span></h5>
+<h5><span id='auth'>Authenication</span><h5>
 <h3><span id='testplan'>Test plan</span></h3> 
   This README would normally document whatever steps are necessary to get the
 application up and running.
