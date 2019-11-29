@@ -8,12 +8,13 @@
 ## [Test plan](#testplan)
 <h3><span id='basicInfo'>Basic information</span></h3>
   This web application is deployed using heroku (Link: https://radiant-gorge-08960.herokuapp.com/). <br>
-  This application is written in <code> rails 6.0.1 </code>. <br>
+  This application is written in <code> rails 6.0.1 </code> with PostgreSQL. <br>
   Once you clone this application to your local envirmonment, you can run the following command in console to run the server: <br>
   <code> bundle install </code> <br>
   <code> rake db:create db:migrate </code> <br>
   <code> rails server </code> <br>
   You can also generate some sample datas for data model using <code> rake db:seed </code> <br>
+  You may need to change the user/password for the database at <code> config/database.yml </code>
 <h3><span id='description'>Application Description</span></h3> 
 <h5><span id='overview'>Overview</span></h5>
   This web application is used for <br>
