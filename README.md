@@ -20,7 +20,7 @@
   This web application is used for <br>
   (1) user (guest) to signup(add guest), login/logout (create/destroy sessions), edit profile (edit guest), view all rooms, book room (assign guest to a room) and view/cancel current booking; <br>
   (2) admin to delete user (delete guest), add/edit/delete room and view all users and all bookings. Admin is also treated as a user.<br>
-  <strong>The admin in the deployed app has email:admin@example.com, password:admin123.</strong>
+  <strong>The admin in the deployed app has email:admin@gmail.com, password:admin123.</strong>
 <h5><span id='models'>Models</span></h5>
    There are three models (User, Model, Booking) in this application: <br>
    <br>
