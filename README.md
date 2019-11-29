@@ -84,17 +84,20 @@
     <code>update</code>: used to update room (admin only). Redirect to <code>show</code> if update successes. <br>
     <code>destroy</code>: used to delete room (admin only). Redicect to <code>index</code>. 
     <br><br>
-    (3) bookings <br>
+    (4) bookings <br>
     There're serveral methods:<br>
-    <code>index</code>: used to show all bookings (admin). <br>
+    <code>index</code>: used to show all bookings (admin only). <br>
     <code>new</code>: used for add new booking. You can choose rooms which is not  <br>
     <code>create</code>: used to create booking and save to database. Redirect to <code>new</code> if creation successes. <br>
-    <code>show</code>: used to show one room. <br>
-    <code>edit</code>: used to edit room (admin only). You can submit a form for <code>update</code>. <br>
-    <code>update</code>: used to update room (admin only). Redirect to <code>show</code> if update successes. <br>
-    <code>destroy</code>: used to delete room (admin only). Redicect to <code>index</code>. 
+    <code>show</code>: used to show one booking. <br>
+    <code>destroy</code>: used to delete booking. Redicect to <code>current_user</code>. 
     <br><br>
 <h5><span id='auth'>Authenication</span><h5>
+   Firstly, to autherize the request, there're two helper functions in sessions controllers: <br>
+   * <code>is_logged_in</code> show whether there's a login session; <br>
+   * <code>current_user</code> if logged in, return the user currently logs in; <br> 
+   With the help with these two functions, we can autherize the request with different conditions.
+   <br><br>
 <h3><span id='testplan'>Test plan</span></h3> 
   This README would normally document whatever steps are necessary to get the
 application up and running.
