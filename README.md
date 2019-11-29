@@ -16,7 +16,9 @@
   You can also generate some sample datas for data model using <code> rake db:seed </code> <br>
 <h3><span id='description'>Application Description</span></h3> 
 <h5><span id='overview'>Overview</span></h5>
-  This web application is used for (1) user (guest) to signup(add guest), login/logout (create/destroy sessions), edit profile (edit guest), view all rooms, book room (assign guest to a room) and view/cancel current booking; (2) admin to have any functions normal user has and admin can delete user (delete guest), add/edit/delete room and view all users and all bookings. 
+  This web application is used for <br>
+  (1) user (guest) to signup(add guest), login/logout (create/destroy sessions), edit profile (edit guest), view all rooms, book room (assign guest to a room) and view/cancel current booking; <br>
+  (2) admin to have any functions normal user has and admin can delete user (delete guest), add/edit/delete room and view all users and all bookings. 
 <h5><span id='models'>Models</span></h5>
 <h5><span id='controllers'>Controllers</span></h5>
 <h5><span id='auth'>Authenication</span><h5>
