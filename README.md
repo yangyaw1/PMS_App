@@ -37,15 +37,38 @@
    (2)<code>Room: {</code><br>
       <code>num: integer</code><br>
       <code>info: string}</code><br>
+   <br>   
    Where: <code>num</code> cannot be empty and is <strong>unique</strong>;<br>
    <code>info</code> cannot be too long.<br>
    <br>
    (3)<code>Booking: {</code><br>
       <code>user_id: integer</code><br>
       <code>room_id: integer}</code><br>
-      Where: <code>user_id</code> is the foreign key to <code>User</code>, and <code>room_id</code> is the foreign key to <code>Room</code>. 
+   <br>
+   Where: <code>user_id</code> is the foreign key to <code>User</code>, and <code>room_id</code> is the foreign key to <code>Room</code>. 
     <br>  
 <h5><span id='controllers'>Controllers</span></h5>
+    There're several controllers: <br>
+    (1) static_pages <br>
+    This one contains method <code>home</code>, which is used for <code>root</code> path.
+    <br><br>
+    (2) users <br>
+    There're serveral methods:<br>
+    <code>index</code>: used to show all users. <br>
+    <code>new</code>: used for signup. You can submit a form for <code>create</code>. <br>
+    <code>create</code>: used to add user. Redirect to <code>show</code> if creation successes. <br>
+    <code>show</code>: used to show one user. <br>
+    <code>edit</code>: used to edit profile. You can submit a form for <code>update</code>. <br>
+    <code>update</code>: used to update user. Redirect to <code>show</code> if update successes. <br>
+    <code>destroy</code>: used to delete user (admin only). Redicect to <code>index</code>. <br>
+    <br><br>
+    (2) sessions <br>
+    sessions controller is used to record login/logout information of users
+    There're serveral methods:<br>
+    <code>new</code>: used for login. You can submit a form for <code>create</code>. <br>
+    <code>create</code>: used to create session. Store <code>current_user</code> for authenication. <br>
+    <code>destroy</code>: used to logout. Set <code>current_user</code> as <code>nil</code> <br>
+    <br><br>
 <h5><span id='auth'>Authenication</span><h5>
 <h3><span id='testplan'>Test plan</span></h3> 
   This README would normally document whatever steps are necessary to get the
