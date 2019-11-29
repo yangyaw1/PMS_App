@@ -94,30 +94,51 @@
     <br><br>
 <h5><span id='auth'>Authenication</span><h5>
    Firstly, to autherize the request, there're two helper functions in sessions controllers: <br>
-   * <code>is_logged_in</code> show whether there's a login session; <br>
-   * <code>current_user</code> if logged in, return the user currently logs in; <br> 
-   With the help with these two functions, we can autherize the request with different conditions.
+   <code>is_logged_in</code> show whether there's a login session; <br>
+   <code>current_user</code> if logged in, return the user currently logs in; <br> 
+   With the help with these two functions and <code>before_action</code>, we can autherize the request with different conditions.
    <br><br>
+   (1) Users:
+   The authenications are:
+   <code> before_action :logged_in_user, only:[:index, :show, :edit, :update, :destroy] </code> <br>
+   <code> before_action :correct_user, only:[:edit, :update] </code> <br>
+   <code> before_action :admin_user, only:[:index, :destroy] </code> <br>
+   <code> before_action :correct_or_admin, only: :show </code>
+   <br><br>
+   Where:<br>
+   <code>logged_in_user</code> will redirect to login path if the user is not logged in. You can view/edit/delete user only if you are logged in; <br>
+   <code> correct_user </code> will redirect to root if the current user is not same to the user. You can view/edit the user information only if you are exactly this user; <br>
+   <code> admin_user </code> will redirect to root if current user is not the admin. You can veiw all users or delete user only if you are admin; <br>
+   <code> correct_or_admin </code> will redirect to root if current user is not the admin and the current user is not same to the user. You can veiw user information if you are that user or you are admin.<br>
+   <br>
+   (2) Rooms:
+   The authenications are:
+   <code> before_action :logged_in_user </code> <br>
+   <code> before_action :admin_user, only: [:new, :create, :edit, :update, :destroy] </code>
+   <br><br>
+   Where:<br>
+   <code> logged_in_user </code> will redirect to login path if the user is not logged in. You cannot do anything with room unless you are logged in; <br>
+   <code> admin_user </code> will redirect to root if current user is not the admin. You can add/edit/delete a room only if you are admin.<br>
+   <br>
+   (3) Bookings:
+   The authenications are:
+   <code> before_action :logged_in_user </code> <br>
+   <code> before_action :not_booked, only: [:new, :create] </code> <br>
+   <code> before_action :correct_user, only: :destroy </code> <br>
+   <code> before_action :admin_user, only: :index </code>
+   <br><br>
+   Where:<br>
+   <code> logged_in_user</code> will redirect to login path if the user is not logged in. You can add/delete a booking only if you are logged in; <br>
+   <code> not_booked </code> is used when creating new booking. It prevents you to create a new booking if the room you are trying to book if the room is already booked (<code>!room.booking.nil?</code>); <br>
+   <code> correct_user </code> is used when deleting a booking. It prevents you to delete a booking if the current user is not same to the user of this booking.
+   <code> admin_user </code> will redirect to root if current user is not the admin. You can view all bookings only if you are admin.<br>
+   <br>
 <h3><span id='testplan'>Test plan</span></h3> 
-  This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+   My plan to do test is as the following (see <code>spec/booking_model_spec.rb</code> as an example):<br>
+   (1) Firstly, test whether a model/controller works normally for valid data/operation. <br>
+       example: One booking should be valid if the user_id and room_id are present, valid and unique. <br>
+   (2) Secondly, test whether a model/controller could deal with invalid data/operation properly. <br>
+       example: One booking should be invalid if the user_id/room_id is not present/valid/unique. <br>
+   (3) Finally, test the influence of any operation on model/controller to related model/controller. <br>
+       example: Once the booking is deleted, the relation between the linked user/room should desapper; <br>
+               Once the user/room is deleted, the user's/room's booking should also be deleted. <br>
