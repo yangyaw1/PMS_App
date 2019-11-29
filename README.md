@@ -21,8 +21,8 @@
   (2) admin to delete user (delete guest), add/edit/delete room and view all users and all bookings. Admin is also treated as a user.<br>
   <strong>The admin in the deployed app has email:admin@example.com, password:admin123.</strong>
 <h5><span id='models'>Models</span></h5>
-   There are three models in this application: <br>
-   (1)<code>User model: {</code><br>
+   There are three models (User, Model, Booking) in this application: <br>
+   (1)<code>User: {</code><br>
       <code>name: string</code><br>
       <code>email: string</code><br>
       <code>password: string</code><br>
@@ -31,7 +31,15 @@
    <code>email</code> cannot be empty, cannot be too long, satisfies email format and is <strong>unique</strong>;<br>
    <code>password</code> length is at least 6;<br>
    <code>admin</code> it's set to false defaultly.<br>
-   (2)
+   (2)<code>Room: {</code><br>
+      <code>num: integer</code><br>
+      <code>info: string}</code><br>
+   Where: <code>num</code> cannot be empty and is <strong>unique</strong>;<br>
+   <code>info</code> cannot be too long.<br>
+   (3)<code>Booking: {</code><br>
+      <code>user_id: integer</code><br>
+      <code>room_id: integer}</code><br>
+      Where: <code>user_id</code> is the foreign key to <code>User</code>, and <code>room_id</code> is the foreign key to <code>Room</code>. 
       
 <h5><span id='controllers'>Controllers</span></h5>
 <h5><span id='auth'>Authenication</span><h5>
