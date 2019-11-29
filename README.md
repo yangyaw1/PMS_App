@@ -18,7 +18,8 @@
 <h5><span id='overview'>Overview</span></h5>
   This web application is used for <br>
   (1) user (guest) to signup(add guest), login/logout (create/destroy sessions), edit profile (edit guest), view all rooms, book room (assign guest to a room) and view/cancel current booking; <br>
-  (2) admin to delete user (delete guest), add/edit/delete room and view all users and all bookings. Admin is also treated as a user.
+  (2) admin to delete user (delete guest), add/edit/delete room and view all users and all bookings. Admin is also treated as a user.<br>
+  <strong>The admin in the deployed app has email:admin@example.com, password:admin123.</strong>
 <h5><span id='models'>Models</span></h5>
    There are three models in this application: <br>
    (1)<code>User model: {</code><br>
@@ -26,6 +27,11 @@
       <code>email: string</code><br>
       <code>password: string</code><br>
       <code>admin: boolean}</code><br>
+   Where: <code>name</code> cannot be empty and cannot be too long;<br>
+   <code>email</code> cannot be empty, cannot be too long, satisfies email format and is <strong>unique</strong>;<br>
+   <code>password</code> length is at least 6;<br>
+   <code>admin</code> it's set to false defaultly.<br>
+   (2)
       
 <h5><span id='controllers'>Controllers</span></h5>
 <h5><span id='auth'>Authenication</span><h5>
